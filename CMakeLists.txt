@@ -3,5 +3,12 @@ project(qp42frames)
 
 set(CMAKE_CXX_STANDARD 11)
 
+include(FindLua REQUIRED)
+
+include_directories(${LUA_INCLUDE_DIR})
+
+set(PROJECT_NAME qp4frames)
 set(SOURCE_FILES main.cpp)
-add_executable(qp42frames ${SOURCE_FILES})
+
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+target_link_libraries(${PROJECT_NAME} ${LUA_LIBRARIES})
