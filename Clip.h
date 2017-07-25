@@ -19,6 +19,7 @@ public:
 
     Clip(std::string name, unsigned int width, unsigned int height) : name{std::move(name)}, width{width}, height{height}, duration{0}, realDuration{0} {};
 
+    void calculateDurationFromFrames();
     void sortEmbeds();
 };
 

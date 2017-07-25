@@ -16,19 +16,19 @@ using namespace cv;
 
 class Matrix {
     void calculateClipDuration(Clip & clip);
-    void generateFrame(Clip const & clip, unsigned int offset);
+    void generateFrame(Clip & clip, unsigned int offset);
     Mat reScaleMat(Mat const & src, unsigned int scale);
 
 public:
-    std::string rootclip;
+    std::string rootClip;
 
     std::vector<Clip> clips;
     std::vector<Mat> frames;
 
-    explicit Matrix(std::string rootclip) : rootclip{std::move(rootclip)} {};
-
     Clip & getClipByName(std::string name);
     Clip & getRootClip();
+
+    void setRootClip(const std::string & rootClip);
 
     void calculateMaxClipDuration();
     void generateEmptyFrames();
