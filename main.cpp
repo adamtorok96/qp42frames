@@ -1,19 +1,20 @@
 #include <iostream>
-#include "Matrix.h"
 
 extern "C" {
 # include "lua.h"
 # include "lauxlib.h"
 }
 
+#include "Matrix.h"
+
 #define N_FUNCTIONS 6
 
 static int l_meta(lua_State * state);
-static int l_beginclip(lua_State * state);
-static int l_endclip(lua_State * state);
+static int l_beginClip(lua_State * state);
+static int l_endClip(lua_State * state);
 static int l_frame(lua_State * state);
 static int l_embed(lua_State * state);
-static int l_rootclip(lua_State * state);
+static int l_rootClip(lua_State * state);
 
 struct function_registry {
     const char * name;
@@ -22,11 +23,11 @@ struct function_registry {
 
 static function_registry regs[N_FUNCTIONS] = {
         {"meta", &l_meta},
-        {"beginclip", &l_beginclip},
-        {"endclip", &l_endclip},
+        {"beginclip", &l_beginClip},
+        {"endclip", &l_endClip},
         {"frame", &l_frame},
         {"embed", &l_embed},
-        {"rootclip", &l_rootclip}
+        {"rootclip", &l_rootClip}
 };
 
 Matrix matrix;
@@ -113,7 +114,7 @@ static int l_meta(lua_State * state) {
     return 0;
 }
 
-static int l_beginclip(lua_State * state) {
+static int l_beginClip(lua_State * state) {
     auto width = lua_tointeger(state, 1);
     auto height = lua_tointeger(state, 2);
     auto name = lua_tostring(state, 3);
@@ -125,7 +126,7 @@ static int l_beginclip(lua_State * state) {
     return 0;
 }
 
-static int l_endclip(lua_State *) {
+static int l_endClip(lua_State *) {
     return 0;
 }
 
@@ -177,7 +178,7 @@ static int l_embed(lua_State * state) {
     return 0;
 }
 
-static int l_rootclip(lua_State * state) {
+static int l_rootClip(lua_State * state) {
     auto name = lua_tostring(state, 1);
 
     std::cout << "rootclip: " << name << std::endl;
