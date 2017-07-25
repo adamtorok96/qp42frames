@@ -71,7 +71,7 @@ void Matrix::generateFrame(Clip & clip, unsigned int offset) {
     clip.sortEmbeds();
 
     for(auto const & embed : clip.embeds) {
-        generateFrame(getClipByName(embed.clip), (embed.t * FPS) / 1000);
+        generateFrame(getClipByName(embed.clip), offset + ((embed.t * FPS) / 1000));
     }
 }
 
