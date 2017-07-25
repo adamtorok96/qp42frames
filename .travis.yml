@@ -1,6 +1,7 @@
 language: cpp
 
-script: cmake CMakeLists.txt
+script:
+  - cmake --build cmake-build/
 
 compiler:
   - clang
