@@ -1,5 +1,7 @@
 language: cpp
 
+script: cmake CMakeLists.txt
+
 compiler:
   - clang
   - gcc
