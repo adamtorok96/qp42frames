@@ -1,7 +1,3 @@
-//
-// Created by edems on 2017.07.25..
-//
-
 #ifndef QP42FRAMES_FRAME_H
 #define QP42FRAMES_FRAME_H
 
@@ -10,9 +6,9 @@
 
 class Frame {
 public:
-    std::vector<unsigned int> pixels;
-
     unsigned int duration;
+
+    std::vector<unsigned int> pixels;
 
     explicit Frame(unsigned int duration) : duration{duration} {}
 };
